@@ -9,8 +9,8 @@ import { FloatingRange } from '../model/floating-range.model';
 })
 export class RangePickerComponent implements OnInit {
 
-  @Input() initialValue: FloatingRange | DateRange;
-  @Output() rangeChanged: EventEmitter<FloatingRange | DateRange>;
+  @Input() initialValue: FloatingRange | DateRange; // Todo: check the type and display range-picker component accordingly
+  @Output() rangeChanged: EventEmitter<FloatingRange | DateRange>; // Todo convert and emit values
 
   value: Range;
 

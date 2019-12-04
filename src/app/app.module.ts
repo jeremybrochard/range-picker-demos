@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { DateRangePickerComponent } from './range-picker/date-range-picker/date-range-picker.component';
 import { FloatingRangePickerComponent } from './range-picker/floating-range-picker/floating-range-picker.component';
 import { RangePickerComponent } from './range-picker/range-picker.component';
+import { DeltaNumberDirective } from './shared/delta-number.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     RangePickerComponent,
+    DateRangePickerComponent,
     FloatingRangePickerComponent,
-    DateRangePickerComponent
+    DeltaNumberDirective
   ],
   imports: [
     CommonModule,

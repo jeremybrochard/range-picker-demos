@@ -1,3 +1,12 @@
-<app-date-range-picker [initialValue]="dateValue" (valueChanges)="updateDisplayedValue($event)"></app-date-range-picker>
+<div fxLayout="column" fxLayoutGap="25px">
 
-{{value | json}}
+  <div>
+    <app-date-range-picker [initialValue]="dateValue" (valueChanges)="updateDisplayedValue($event)"></app-date-range-picker>
+    {{value | json}}
+  </div>
+
+  <div>
+    <app-floating-range-picker></app-floating-range-picker>
+  </div>
+
+</div>

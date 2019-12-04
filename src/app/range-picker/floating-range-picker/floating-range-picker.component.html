@@ -1,0 +1,22 @@
+<div fxLayout="column" fxLayoutGap="25px" fxFill>
+
+  <h3>Floating Range Picker</h3>
+
+  <form [formGroup]="form">
+    <div fxLayout="row" fxLayoutGap="25px">
+
+      <div fxLayout="row">
+        <button class="btn btn-success" (click)="fromdp.toggle()" [attr.aria-expanded]="fromdp.isOpen" type="button">From</button>
+        <input type="text" class="form-control" #fromdp="bsDatepicker" [bsConfig]="datePickerConfig" bsDatepicker appDeltaNumber [input]="form.get('from').value" formControlName="from">
+      </div>
+
+      <div fxLayout="row">
+        <button class="btn btn-success" (click)="todp.toggle()" [attr.aria-expanded]="todp.isOpen" type="button">To</button>
+        <input type="text" class="form-control" #todp="bsDatepicker" [bsConfig]="datePickerConfig" bsDatepicker appDeltaNumber [input]="form.get('to').value" formControlName="to">
+      </div>
+
+    </div>
+  </form>
+
+</div>
+
