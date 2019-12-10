@@ -2,7 +2,9 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { FloatingRange } from 'src/app/model/floating-range.model';
+import { UtilsService } from 'src/app/shared/utils.service';
 import { Range } from '../../model/range.interface';
+import { DateRange } from 'src/app/model/date-range.model';
 
 @Component({
   selector: 'app-floating-range-picker',
@@ -11,7 +13,7 @@ import { Range } from '../../model/range.interface';
 })
 export class FloatingRangePickerComponent implements OnInit, OnDestroy {
 
-  @Input() initialValue: FloatingRange; // Todo: allow floating and date ranges (for convenience)
+  @Input() initialValue: FloatingRange | DateRange;
   @Input() datePickerConfig = { dateInputFormat: 'YYYY-MM-DD' };
 
   @Output() valueChanges: EventEmitter<FloatingRange>;
@@ -19,17 +21,26 @@ export class FloatingRangePickerComponent implements OnInit, OnDestroy {
   form: FormGroup;
   valueChangesSubcription: Subscription;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private utilsService: UtilsService) {
     this.valueChanges = new EventEmitter<FloatingRange>();
   }
 
   ngOnInit() {
-    this.form = this.createForm(this.initialValue);
+    const initialValue = this.toDateRange(this.initialValue);
+    this.form = this.createForm(initialValue);
+
     this.valueChangesSubcription = this.subscribeToValueChanges(this.form);
   }
 
   ngOnDestroy() {
     this.valueChangesSubcription.unsubscribe();
+  }
+
+  private toDateRange(range: FloatingRange | DateRange): DateRange {
+    if (this.utilsService.isFloatingRange(range)) {
+      return this.utilsService.fromFloatingRangeToDateRange(range);
+    }
+    return range;
   }
 
   private createEmptyForm(): FormGroup {
@@ -39,7 +50,7 @@ export class FloatingRangePickerComponent implements OnInit, OnDestroy {
     });
   }
 
-  private createForm(initialValue?: FloatingRange): FormGroup {
+  private createForm(initialValue?: DateRange): FormGroup {
     const form = this.createEmptyForm();
 
     if (initialValue) {
@@ -50,8 +61,8 @@ export class FloatingRangePickerComponent implements OnInit, OnDestroy {
   }
 
   private emitNewValue(date: Range) {
-    // Todo: do conversion from dateRange to floatingRange before
-    this.valueChanges.emit(new FloatingRange(date));
+    const floatingRange = this.utilsService.fromDateRangeToFloatingRange(new DateRange(date));
+    this.valueChanges.emit(floatingRange);
   }
 
   private subscribeToValueChanges(formGroup: FormGroup): Subscription {

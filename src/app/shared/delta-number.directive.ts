@@ -11,8 +11,8 @@ export class DeltaNumberDirective implements OnChanges {
   constructor(private el: ElementRef, private utilsService: UtilsService) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.input) {
-      const floatingValue = this.utilsService.fromDateToFloating(this.input);
+    if (changes.input.currentValue) {
+      const floatingValue = this.utilsService.fromDateToFloating(changes.input.currentValue);
       const displayValue = floatingValue >= 0 ? `D+${floatingValue}` : `D${floatingValue}`;
       this.el.nativeElement.value = displayValue;
     }

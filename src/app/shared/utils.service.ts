@@ -36,11 +36,19 @@ export class UtilsService {
   fromFloatingRangeToDateRange(date: FloatingRange): DateRange | null {
     if (date) {
       const fromDate = this.fromFloatingToDate(date.from);
-      const toDate = this.fromFloatingToDate(date.to);
+      const toDate = this.fromFloatingToDate(date.to + 1);
 
       return new DateRange({ from: fromDate, to: toDate });
     }
     return null;
+  }
+
+  isFloatingRange(range: any): range is FloatingRange {
+    return range.type === 'floating';
+  }
+
+  isDateRange(range: any): range is DateRange {
+    return range.type === 'fixed';
   }
 
 }
