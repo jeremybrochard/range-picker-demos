@@ -1,12 +1,16 @@
 <div fxLayout="column" fxLayoutGap="25px">
 
-  <div>
-    <app-date-range-picker [initialValue]="dateValue" (valueChanges)="updateDisplayedValue($event)"></app-date-range-picker>
-    {{value | json}}
-  </div>
+  <form [formGroup]="form">
+    <input formControlName="pickerType" value="fixed" type="radio">Fixed
+    <input formControlName="pickerType" value="floating" type="radio">Floating
+  </form>
 
-  <div>
-    <app-floating-range-picker></app-floating-range-picker>
-  </div>
+  <app-date-range-picker *ngIf="isFixedRangePicker" [initialValue]="convertToDateRange(currentValue)"
+    (valueChanges)="updateCurrentValueAndEmitChange($event)">
+  </app-date-range-picker>
+
+  <app-floating-range-picker *ngIf="!isFixedRangePicker" [initialValue]="currentValue"
+    (valueChanges)="updateCurrentValueAndEmitChange($event)">
+  </app-floating-range-picker>
 
 </div>

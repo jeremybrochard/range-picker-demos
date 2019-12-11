@@ -1,4 +1,8 @@
 <div class="main-container">
   <h1>Example de range picker</h1>
-  <app-range-picker></app-range-picker>
+  <app-range-picker (rangeChanged)="updateDisplayedValue($event)"></app-range-picker>
+
+  <span>
+    {{value | json}}
+  </span>
 </div>

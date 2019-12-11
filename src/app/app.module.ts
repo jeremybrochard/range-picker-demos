@@ -4,6 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AppComponent } from './app.component';
 import { DateRangePickerComponent } from './range-picker/date-range-picker/date-range-picker.component';
@@ -25,6 +26,7 @@ import { DeltaNumberDirective } from './shared/delta-number.directive';
     BrowserAnimationsModule,
     FlexLayoutModule,
     BsDatepickerModule.forRoot(),
+    ButtonsModule.forRoot(),
     ReactiveFormsModule
   ],
   providers: [],
