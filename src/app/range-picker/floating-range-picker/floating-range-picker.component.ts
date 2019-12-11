@@ -36,11 +36,14 @@ export class FloatingRangePickerComponent implements OnInit, OnDestroy {
     this.valueChangesSubcription.unsubscribe();
   }
 
-  private toDateRange(range: FloatingRange | DateRange): DateRange {
-    if (this.utilsService.isFloatingRange(range)) {
-      return this.utilsService.fromFloatingRangeToDateRange(range);
+  private toDateRange(range: FloatingRange | DateRange): DateRange | null {
+    if (range) {
+      if (this.utilsService.isFloatingRange(range)) {
+        return this.utilsService.fromFloatingRangeToDateRange(range);
+      }
+      return range;
     }
-    return range;
+    return null;
   }
 
   private createEmptyForm(): FormGroup {
