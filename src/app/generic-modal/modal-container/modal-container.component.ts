@@ -7,7 +7,8 @@ import { GenericModalOptions } from '../model/generic-modal-options';
 @Component({
   selector: 'app-modal-container',
   templateUrl: './modal-container.component.html',
-  styleUrls: ['./modal-container.component.scss']
+  styleUrls: ['./modal-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalContainerComponent implements AfterViewInit {
 
@@ -19,7 +20,7 @@ export class ModalContainerComponent implements AfterViewInit {
   draggableAnchor: HTMLElement;
   draggableZone: HTMLElement;
 
-  constructor() {
+  constructor(private changeDetector: ChangeDetectorRef) {
     this.onHidden = new EventEmitter<number>();
   }
 
@@ -31,11 +32,13 @@ export class ModalContainerComponent implements AfterViewInit {
 
   private getDraggableZone() {
     this.draggableZone = document.body;
+    this.changeDetector.detectChanges();
   }
 
   private getDraggableAnchor() {
     const draggableElement = document.getElementById(DRAGGABLE_ANCHOR_ID);
     this.draggableAnchor = draggableElement ? draggableElement : undefined;
+    this.changeDetector.detectChanges();
   }
 
 }
