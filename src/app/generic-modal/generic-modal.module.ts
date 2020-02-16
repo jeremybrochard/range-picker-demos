@@ -3,6 +3,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularDraggableModule } from 'angular2-draggable';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { DraggableAnchorDirective } from './draggable-anchor.directive';
 import { GenericModalService } from './generic-modal.service';
 import { ModalContainerComponent } from './modal-container/modal-container.component';
 import { ModalComponent } from './modal/modal.component';
@@ -10,7 +11,8 @@ import { ModalComponent } from './modal/modal.component';
 @NgModule({
   declarations: [
     ModalContainerComponent,
-    ModalComponent
+    ModalComponent,
+    DraggableAnchorDirective
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { ModalComponent } from './modal/modal.component';
     AngularDraggableModule
   ],
   exports: [
-    ModalComponent
+    ModalComponent,
+    DraggableAnchorDirective
   ],
   entryComponents: [
     ModalContainerComponent,
