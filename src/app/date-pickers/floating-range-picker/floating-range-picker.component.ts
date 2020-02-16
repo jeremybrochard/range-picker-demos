@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { FloatingRange } from 'src/app/date-pickers/model/floating-range.model';
-import { UtilsService } from 'src/app/shared/utils.service';
+import { DateRange } from '../model/date-range.model';
+import { FloatingRange } from '../model/floating-range.model';
 import { Range } from '../model/range.interface';
-import { DateRange } from 'src/app/date-pickers/model/date-range.model';
+import { UtilsService } from '../../shared/utils.service';
 
 @Component({
   selector: 'app-floating-range-picker',
