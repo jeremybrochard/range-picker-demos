@@ -1,8 +1,23 @@
-<div class="main-container">
-  <h1>Example de range picker</h1>
-  <app-range-picker (rangeChanged)="updateDisplayedValue($event)"></app-range-picker>
+<div class="main-container" fxLayout="column" fxLayoutGap="50px">
 
-  <span>
-    {{value | json}}
-  </span>
+  <h1>Examples : </h1>
+  <ng-container *ngTemplateOutlet="rangePicker"></ng-container>
+  <ng-container *ngTemplateOutlet="modal"></ng-container>
 </div>
+
+<ng-template #rangePicker>
+  <div fxLayout="column" fxLayoutGap="25px">
+    <h2>Range pickers</h2>
+    <app-range-picker (rangeChanged)="updateDisplayedValue($event)"></app-range-picker>
+    <span>
+      {{value | json}}
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #modal>
+  <div>
+    <h2>Modals</h2>
+    A Faire
+  </div>
+</ng-template>
