@@ -1,4 +1,5 @@
 import { ComponentRef } from '@angular/core';
+import { ModalContainerComponent } from '../modal-container/modal-container.component';
 
 export interface IGenericModalRef {
   modalContainerNode: HTMLElement;
@@ -24,7 +25,7 @@ export class GenericModalRef {
     return this._modalContentNode;
   }
 
-  get modalContainerRef(): ComponentRef<any> {
+  get modalContainerRef(): ComponentRef<ModalContainerComponent> {
     return this._modalContainerRef;
   }
 

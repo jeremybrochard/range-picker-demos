@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GenericModalService } from '../generic-modal/generic-modal.service';
+import { RangePickerComponent } from '../date-pickers/range-picker/range-picker.component';
 
 @Component({
   selector: 'app-test-modal',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: GenericModalService) { }
 
   ngOnInit() {
+  }
+
+  setClass() {
+    this.modalService.setClass('modal-sm');
   }
 
 }

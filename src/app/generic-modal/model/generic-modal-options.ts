@@ -36,14 +36,25 @@ export class GenericModalOptions extends ModalOptions {
    * Activate draggable on modal
    */
   enableDraggable?: boolean;
+  /**
+   * Active draggable bounds
+   */
+  enableDraggableBounds?: boolean;
 
   constructor(options?: GenericModalOptions) {
     super();
 
     if (options) {
       Object.assign(this, options);
+
       this.show = this.show !== undefined ? this.show : true;
       this.enableDraggable = this.enableDraggable === true;
+
+      this.enableDraggableBounds = this.enableDraggable
+        ? this.enableDraggableBounds !== undefined
+          ? this.enableDraggableBounds
+          : true
+        : false;
     }
   }
 

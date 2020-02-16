@@ -39,7 +39,8 @@ export class AppComponent {
         initialState: {
           initialValue: this.initialDateValue
         },
-        enableDraggable: true
+        enableDraggable: true,
+        enableDraggableBounds: true
       }
     );
     console.log(modalRef);

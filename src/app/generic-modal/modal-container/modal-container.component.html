@@ -1,7 +1,8 @@
 <div class="modal fade" bsModal #staticModal="bs-modal" [config]="config" tabindex="-1" role="dialog">
 
   <div [class]="'modal-dialog' + (config.class ? ' ' + config.class : '')" role="document"
-    [ngDraggable]="config.enableDraggable" [handle]="draggableAnchor">
+    [ngDraggable]="config.enableDraggable" [handle]="draggableAnchor" [bounds]="draggableZone"
+    [inBounds]="config.enableDraggableBounds">
 
     <div class="modal-content">
 

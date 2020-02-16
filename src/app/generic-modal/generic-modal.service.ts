@@ -55,6 +55,26 @@ export class GenericModalService {
     }
   }
 
+  /**
+   * Change modal class (by default, update last opened one)
+   * @param className
+   * @param modalId
+   */
+  setClass(className: string, modalId?: number) {
+    if (className) {
+      if (modalId) {
+        const modal = this._openedModal.find(m => m.id === modalId);
+        this.setModalClass(modal, className);
+      } else {
+        const length = this._openedModal.length;
+        if (length > 0) {
+          const lastOne = this._openedModal[length - 1];
+          this.setModalClass(lastOne, className);
+        }
+      }
+    }
+  }
+
   private addToOpenedModal(modal: GenericModalRef) {
     this._openedModal.push(modal);
     this._modalCounts = this._modalCounts++;
@@ -107,6 +127,14 @@ export class GenericModalService {
       modal.modalContainerRef.destroy();
     } else {
       console.warn('no modal to close');
+    }
+  }
+
+  private setModalClass(modal: GenericModalRef, className: string) {
+    if (modal) {
+      modal.modalContainerRef.instance.config.class = className;
+    } else {
+      console.warn('no modal to add class');
     }
   }
 }
