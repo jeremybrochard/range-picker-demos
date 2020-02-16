@@ -18,8 +18,6 @@ import { GenericModalModule } from './generic-modal/generic-modal.module';
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    BsDatepickerModule.forRoot(),
-    ButtonsModule.forRoot(),
     DatePickersModule,
     GenericModalModule.forRoot()
   ],
