@@ -32,7 +32,15 @@ export class AppComponent {
   }
 
   createModal() {
-    const modalRef = this.modalService.open(RangePickerComponent);
+    const modalRef = this.modalService.open(
+      RangePickerComponent,
+      {
+        class: 'modal-lg',
+        initialState: {
+          initialValue: this.initialDateValue
+        }
+      }
+    );
     console.log(modalRef);
   }
 }

@@ -74,6 +74,9 @@ export class GenericModalService {
 
     const modalContentFactory = this.cfr.resolveComponentFactory(componentRef);
     const modalContentRef = modalContentFactory.create(this.injector, [], modalContentNode);
+    if (config) {
+      Object.assign(modalContentRef.instance, config.initialState);
+    }
 
     const modalFactory = this.cfr.resolveComponentFactory(ModalContainerComponent);
     const modalContainerRef = modalFactory.create(this.injector, [[modalContentNode]], modalContainerNode);
