@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { DatePickersModule } from './date-pickers/date-pickers.module';
 import { RangePickerComponent } from './date-pickers/range-picker/range-picker.component';
 import { GenericModalModule } from './generic-modal/generic-modal.module';
+import { TestModalComponent } from './test-modal/test-modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestModalComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { GenericModalModule } from './generic-modal/generic-modal.module';
     GenericModalModule.forRoot()
   ],
   entryComponents: [
-    RangePickerComponent
+    RangePickerComponent,
+    TestModalComponent
   ],
   bootstrap: [AppComponent]
 })

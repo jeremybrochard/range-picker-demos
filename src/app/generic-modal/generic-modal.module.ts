@@ -5,10 +5,12 @@ import { AngularDraggableModule } from 'angular2-draggable';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { GenericModalService } from './generic-modal.service';
 import { ModalContainerComponent } from './modal-container/modal-container.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
-    ModalContainerComponent
+    ModalContainerComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -16,9 +18,12 @@ import { ModalContainerComponent } from './modal-container/modal-container.compo
     ModalModule.forRoot(),
     AngularDraggableModule
   ],
-  exports: [],
+  exports: [
+    ModalComponent
+  ],
   entryComponents: [
-    ModalContainerComponent
+    ModalContainerComponent,
+    ModalComponent
   ]
 })
 export class GenericModalModule {

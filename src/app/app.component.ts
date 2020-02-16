@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { DateRange } from './date-pickers/model/date-range.model';
 import { FloatingRange } from './date-pickers/model/floating-range.model';
 import { GenericModalService } from './generic-modal/generic-modal.service';
-import { RangePickerComponent } from './date-pickers/range-picker/range-picker.component';
+import { TestModalComponent } from './test-modal/test-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +33,7 @@ export class AppComponent {
 
   createModal() {
     const modalRef = this.modalService.open(
-      RangePickerComponent,
+      TestModalComponent,
       {
         class: 'modal-lg',
         initialState: {
