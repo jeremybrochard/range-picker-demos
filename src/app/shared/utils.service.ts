@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { FloatingRange } from 'src/app/model/floating-range.model';
-import { DateRange } from 'src/app/model/date-range.model';
+import { FloatingRange } from 'src/app/date-pickers/model/floating-range.model';
+import { DateRange } from 'src/app/date-pickers/model/date-range.model';
 import * as moment from 'moment';
 
 @Injectable({

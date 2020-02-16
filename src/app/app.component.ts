@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DateRange } from './model/date-range.model';
-import { FloatingRange } from './model/floating-range.model';
+import { DateRange } from './date-pickers/model/date-range.model';
+import { FloatingRange } from './date-pickers/model/floating-range.model';
 
 @Component({
   selector: 'app-root',

@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { DateRange } from 'src/app/model/date-range.model';
-import { Range } from '../../model/range.interface';
+import { DateRange } from 'src/app/date-pickers/model/date-range.model';
+import { Range } from '../model/range.interface';
 
 @Component({
   selector: 'app-date-range-picker',

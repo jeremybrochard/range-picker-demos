@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { DateRange } from '../model/date-range.model';
 import { FloatingRange } from '../model/floating-range.model';
 import { RangeType } from '../model/range.interface';
-import { UtilsService } from '../shared/utils.service';
+import { UtilsService } from '../../shared/utils.service';
 
 @Component({
   selector: 'app-range-picker',
