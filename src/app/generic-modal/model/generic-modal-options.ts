@@ -37,8 +37,14 @@ export class GenericModalOptions extends ModalOptions {
    */
   enableDraggable?: boolean;
 
-  constructor() {
+  constructor(options?: GenericModalOptions) {
     super();
+
+    if (options) {
+      Object.assign(this, options);
+      this.show = this.show !== undefined ? this.show : true;
+      this.enableDraggable = this.enableDraggable === true;
+    }
   }
 
 }

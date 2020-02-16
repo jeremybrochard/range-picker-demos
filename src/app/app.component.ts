@@ -38,7 +38,8 @@ export class AppComponent {
         class: 'modal-lg',
         initialState: {
           initialValue: this.initialDateValue
-        }
+        },
+        enableDraggable: true
       }
     );
     console.log(modalRef);

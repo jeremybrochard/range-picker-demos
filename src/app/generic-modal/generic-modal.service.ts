@@ -81,7 +81,7 @@ export class GenericModalService {
     const modalFactory = this.cfr.resolveComponentFactory(ModalContainerComponent);
     const modalContainerRef = modalFactory.create(this.injector, [[modalContentNode]], modalContainerNode);
 
-    modalContainerRef.instance.config = { ...config, show: true };
+    modalContainerRef.instance.config = new GenericModalOptions(config);
     modalContainerRef.instance.modalId = modalId;
     modalContainerRef.instance.onHidden.pipe(first()).subscribe(id => this.close(id));
 

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularDraggableModule } from 'angular2-draggable';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { GenericModalService } from './generic-modal.service';
 import { ModalContainerComponent } from './modal-container/modal-container.component';
@@ -12,7 +13,8 @@ import { ModalContainerComponent } from './modal-container/modal-container.compo
   imports: [
     CommonModule,
     FlexLayoutModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AngularDraggableModule
   ],
   exports: [],
   entryComponents: [
