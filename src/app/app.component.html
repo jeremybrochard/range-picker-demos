@@ -1,4 +1,4 @@
-<div class="main-container" fxLayout="column" fxLayoutGap="50px">
+<div id="main-container" fxLayout="column" fxLayoutGap="50px">
 
   <h1>Examples : </h1>
   <ng-container *ngTemplateOutlet="rangePicker"></ng-container>
@@ -18,6 +18,6 @@
 <ng-template #modal>
   <div>
     <h2>Modals</h2>
-    A Faire
+    <button (click)="createModal()">Create new modal</button>
   </div>
 </ng-template>

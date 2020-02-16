@@ -14,8 +14,9 @@ import { ModalContainerComponent } from './modal-container/modal-container.compo
     FlexLayoutModule,
     ModalModule.forRoot()
   ],
-  exports: [
-
+  exports: [],
+  entryComponents: [
+    ModalContainerComponent
   ]
 })
 export class GenericModalModule {

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DateRange } from './date-pickers/model/date-range.model';
 import { FloatingRange } from './date-pickers/model/floating-range.model';
+import { GenericModalService } from './generic-modal/generic-modal.service';
+import { RangePickerComponent } from './date-pickers/range-picker/range-picker.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,16 @@ export class AppComponent {
     to: 20,
   });
 
+  constructor(private modalService: GenericModalService) {
+
+  }
+
   updateDisplayedValue(newDate: FloatingRange | DateRange) {
     this.value = newDate;
+  }
+
+  createModal() {
+    const modalRef = this.modalService.open(RangePickerComponent);
+    console.log(modalRef);
   }
 }
