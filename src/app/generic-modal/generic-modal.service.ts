@@ -125,6 +125,10 @@ export class GenericModalService {
       this.appRef.detachView(modal.modalContainerRef.hostView);
       modal.modalContentRef.destroy();
       modal.modalContainerRef.destroy();
+
+      // Remove from opened modals list
+      const modalToClose = this._openedModal.findIndex(m => m.id === modal.id);
+      this._openedModal.splice(modalToClose, 1);
     } else {
       console.warn('no modal to close');
     }
