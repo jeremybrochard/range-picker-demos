@@ -9,7 +9,7 @@ import { FloatingRange } from './date-pickers/model/floating-range.model';
 })
 export class AppComponent {
   value: FloatingRange | DateRange;
-  title = 'range-picker-demos';
+  title = 'components-demos';
 
   initialDateValue: DateRange = new DateRange({
     from: new Date(2019, 10, 5),

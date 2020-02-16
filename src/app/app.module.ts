@@ -7,6 +7,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AppComponent } from './app.component';
 import { DatePickersModule } from './date-pickers/date-pickers.module';
+import { GenericModalModule } from './generic-modal/generic-modal.module';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,9 @@ import { DatePickersModule } from './date-pickers/date-pickers.module';
     FlexLayoutModule,
     BsDatepickerModule.forRoot(),
     ButtonsModule.forRoot(),
-    DatePickersModule
+    DatePickersModule,
+    GenericModalModule.forRoot()
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
